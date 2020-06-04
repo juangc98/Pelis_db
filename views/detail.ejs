@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Detalle de película</h1>
+    <h3><%= myMovie.title %></h3>
+    <div>
+        <p>Rating: <span><%= myMovie.rating %></span> </p>
+        <p>Premios: <span><%= myMovie.awards %></span> </p>
+        <p>Duración: <span><%= myMovie.length %> </span></p>
+        <p>Fecha de estreno: <span><%= myMovie.release_date %></span> </p>
+    </div>
+    <form action="" method="post">
+        <button type="submit">MODIFICAR</button>
+    </form>
+    <form action="" method="post">
+        <button type="submit">BORRAR</button>
+    </form>
+    
+
+</body>
+</html>
