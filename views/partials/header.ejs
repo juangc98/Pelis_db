@@ -1,0 +1,17 @@
+<nav>
+    <div class="nav-wrapper red darken-3">
+        <a href="/movies" class="brand-logo" style="margin-left: 2%;"><img class="prefix" src="/img/cinema.png" alt="" style="width: 40px;margin: auto;margin-top: 10%;position: relative;">PELIX</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li>
+                <form method="GET" class="row" action="/search" style="display: flex;">
+                    <button class="btn-flat prefix" type="submit" value="submit"><i class="material-icons prefix" style="color: white;">search</i></button>
+                    <input type="text" id="buscar" name="buscar" class="autocomplete prefix" placeholder="Buscar..." ::placeholder style="color: white;">
+                </form>
+            </li>
+            <li><a href="/new">Estrenos</a></li>
+            <li><a href="/recommended">Recomendaciones</a></li>
+        </ul>
+    </div>
+</nav>
+
+<script src="/js/header.js"></script>

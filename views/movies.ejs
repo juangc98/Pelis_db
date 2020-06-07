@@ -3,16 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/custom-style.css">
+    
+
+    <title>Homepage | PELIX</title>
 </head>
 <body>
-    <h1>Detalle de películas</h1>
-    <ul>
-        <% moviesAll.forEach(function(movie){ %>
-            <li>
-                <a href="/detail/<%= movie.id %>"</a>><%= movie.title%></a>
-            </li>
-        <% }) %> 
-    </ul>
+
+    <%- include ('./partials/header.ejs') %>
+    
+    <div class="container">
+        <div class="collection with-header">
+            <li class="collection-header center"> <h4>Todas las películas</h4> </li>
+            <% moviesAll.forEach(function(movie){ %>
+                    <a href="/detail/<%= movie.id %>" class="collection-item" > <%= movie.title%> </a>
+            <% }) %> 
+        </div>
+    </div>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>

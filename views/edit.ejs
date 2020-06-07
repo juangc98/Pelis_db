@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/custom-style.css">
+    <script src="/js/edit-form.js"></script>
+    <title>PELIX</title>
+</head>
+
+<body>
+
+    <%- include ('./partials/header.ejs') %>
+
+    <div class="container" style="width: 60%;margin-top: 5%;">
+        
+        <form action="<%=myUrl%>" method="post" class="col s12 m10 l8 xl8">
+            <div class="card horizontal">
+                    <div class="card-image"
+                        style="display: flex;justify-content: center;align-content: center;align-items: center;margin:
+                        1%;border:1px solid rgba(160,160,160,0.2)">
+                        <div class="file-field input-field" style="display: flex; flex-direction: column;">
+                            <div style="display: block;width: 17%;margin: auto;">
+                                <i class="small material-icons">folder_open</i>
+                                <input type="file">
+                            </div>
+                            <div class="file-path-wrapper" style="width: 90%;margin: auto; padding: 0;">
+                                <input class="file-path validate" type="text" style="border: none">
+                            </div>
+                        </div>
+                    </div>
+                <div class="card-stacked" style="border-left: 1px solid rgba(160,160,160,0.2);">
+                    <div class="card-content">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input placeholder="Placeholder" id="title" type="text" class="validate">
+                                <label for="title">Título:</label>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            
+                            <div class="input-field col s6">
+                                <input placeholder="Placeholder" id="awards" type="number" class="validate">
+                                <label for="awards">Premios:</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="length" type="number" placeholder="Minutos" class="validate">
+                                <label for="length">Duración:</label>
+                            </div>
+                            
+                        </div>
+                        <div class="row" style="width: 90%; margin: auto;">
+                                <p class="range-field s12">
+                                    <span style="display: block; text-align: center; margin: auto; font-weight: 600;">
+                                        Rating: <text id="spanscale" style="text-align: center; display: inline;">5.0</text>
+                                    </span>
+                                    <input type="range" id="rating" min="0.0" max="10.0" step="0.1" value="5.0" style="margin: 0;" />
+                                </p>
+                        </div>
+            
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="date" type="date" class="datepicker">
+                            </div>
+                            <div class="col s6">
+                                <select name="genero" id="genero">
+                                    <option value="">Seleccioná...</option>
+                                    <option value="1">Option 1</option>
+                                    <option value="2">Option 2</option>
+                                    <option value="3">Option 3</option>
+                                </select>
+                                <label for="genres">Género</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <button class="right btn-flat waves-effect btn-large" type="submit" style="font-weight: 600;">
+                            GUARDAR CAMBIOS
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="/js/date-picker.js"></script>
+    <script src="/js/edit-form.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+body {
+    background-color: rgb(34, 34, 34);
+}
+
+h4 {
+    color: rgb(34, 34, 34);
+}
+
+div.collection {
+    overflow: unset;
+    border: none;
+    background-color:rgb(34, 34, 34);
+}
+
+.collection-header{
+    background-color: invisible;
+    opacity: 1.0;
+    border: none;
+}
+
+.collection a.collection-item {
+    color: black;
+}
+
+.collection a.collection-item:not(.active):hover {
+    background-color: #C62828;
+}
+
+#rank-star {
+    color:goldenrod;
+}
+
+#filters-container{
+}

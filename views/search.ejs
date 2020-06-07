@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/custom-style.css">
+    <title>Busqueda | PELIX </title>
+</head>
+
+<body>
+
+    <%- include ('./partials/header.ejs') %>
+
+    <div class="row" style="padding: 2%;">
+
+        <div class="col s12 m4 l3" id="filters-container">
+            <form action="">
+                <div class="row" style="display: block;">
+                    <h5 style="display: inline; color: white; opacity: 0.8;">Filtrar búsqueda</h5>
+                </div>
+            <!-- Grey navigation panel -->
+            <div class="container" style="display: flex; flex-direction: column;">
+            <div class="input-field ">
+                <select>
+                    <option value="" disabled selected>Ordenar por...</option>
+                    <option value="1">Mayor ranking </option>
+                    <option value="1">Menor ranking </option>
+                    <option value="2">Título (A - z)</option>
+                    <option value="3">Título (Z - a)</option>
+                    <option value="4">Cantidad de premios </option>
+                    <option value="5">Mayor duración</option>
+                    <option value="5">Menor duración</option>
+                    <option value="6">Fecha de estreno</option>
+                    <option value="6">Antiguedad</option>
+                </select>
+                <label>Materialize Select</label>
+            </div>
+             <!-- Switch -->
+             <div class="switch">
+                 <labels>
+                     No
+                     <input type="checkbox">
+                     <span class="lever"></span>
+                     Si
+                 </label>
+             </div>
+             <div class="input-field">
+                 <select multiple>
+                     <option value="" disabled selected>Géneros</option>
+                     <option value="1">Option 1</option>
+                     <option value="2">Option 2</option>
+                     <option value="3">Option 3</option>
+                 </select>
+                 <label>Filtrá por géneros</label>
+             </div>
+
+             </div>
+             </form>
+
+        </div>
+
+        <div class="col s12 m8 l9 container">
+            <div class="collection with-header">
+                <li class="collection-header center">
+                    <h4>Resultados de tu busqueda:</h4>
+                </li>
+                <% mySearch.forEach(function(movie){ %>
+                <a href="/detail/<%= movie.id %>" class="collection-item"> <%= movie.title%> </a>
+                <% }) %>
+            </div>
+        </div>
+    
+    </div>
+
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>

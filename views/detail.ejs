@@ -3,24 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/custom-style.css">
+    <title>Detalle | PELIX</title>
 </head>
 <body>
-    <h1>Detalle de película</h1>
-    <h3><%= myMovie.title %></h3>
-    <div>
-        <p>Rating: <span><%= myMovie.rating %></span> </p>
-        <p>Premios: <span><%= myMovie.awards %></span> </p>
-        <p>Duración: <span><%= myMovie.length %> </span></p>
-        <p>Fecha de estreno: <span><%= myMovie.release_date %></span> </p>
-    </div>
-    <form action="" method="post">
-        <button type="submit">MODIFICAR</button>
-    </form>
-    <form action="" method="post">
-        <button type="submit">BORRAR</button>
-    </form>
+
+    <%- include ('./partials/header.ejs') %>
+
+<div class="container">
+
+    <h3 class="header" style="color: whitesmoke;opacity: 0.6; margin: 5%;">Detalle de película</h3>
+    <div class="card horizontal large" style="width: 90%; margin: auto;">
     
+        <div class="card-image">
+            <img src="https://lorempixel.com/100/190/nature/6">
+        </div>
+        <div class="card-stacked">
+            <div class="card-content">
+                <h5><%= myMovie.title %></h5>
+                <blockquote>
+                    <p>Rating: <span><%= myMovie.rating %></span> </p>
+                    <p>Premios: <span><%= myMovie.awards %></span> </p>
+                    <p>Duración: <span><%= myMovie.length %> </span></p>
+                    <p>Fecha de estreno: <span><%= myMovie.release_date %></span> </p>
+                </blockquote>
+            </div>
+            <div class="card-action row">
+                <form method="GET" action="<%=myUrl%>/edit">
+                    <button class="btn-flat left" type="submit">MODIFICAR <i class="material-icons prefix">create</i></button>
+                </form>
+                <form method="POST">
+                    <button class="btn-flat right" type="submit">BORRAR <i class="material-icons prefix">close</i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+        
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 </body>
 </html>
