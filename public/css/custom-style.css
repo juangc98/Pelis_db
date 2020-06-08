@@ -32,3 +32,7 @@ div.collection {
 
 #filters-container{
 }
+
+.btn-large:hover {
+    background-color: #C62828;
+}

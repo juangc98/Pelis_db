@@ -130,17 +130,12 @@ const moviesController = {
 
         let myId = req.params.id;
         
-        db.Movies.findOne({
+        db.Movies.destroy({
                 where: {
                     id: myId
                 }
-            }).then((resultado) => {
-                let myMovie = resultado
-                //ALERT reconfirmar accion
-                //DELETEAR toda la fila == myID
-                return res.redirect('/movies')
-            })
-            .catch(error => console.log(error))
+            });
+        return res.redirect('/movies')
 
     },
 
