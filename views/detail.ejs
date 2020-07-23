@@ -26,10 +26,11 @@
             <div class="card-content">
                 <h5><%= myMovie.title %></h5>
                 <blockquote>
-                    <p>Rating: <span><%= myMovie.rating %></span> </p>
+                    <p>Genero: <span><%= myMovie.genero.name %></span> </p>
+                    <p>Rating: <i class="tiny material-icons">star</i><span><%= myMovie.rating %></span> </p>
                     <p>Premios: <span><%= myMovie.awards %></span> </p>
                     <p>Duración: <span><%= myMovie.length %> </span></p>
-                    <p>Fecha de estreno: <span><%= myMovie.release_date %></span> </p>
+                    <p>Fecha de estreno: <span><%= new Date(myMovie.release_date).toLocaleDateString() %></span> </p>
                 </blockquote>
             </div>
             <div class="card-action row">

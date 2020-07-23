@@ -92,11 +92,12 @@ const moviesController = {
         var actualUrl = url.parse(req.url, true);
         let myUrl = actualUrl.pathname;
 
-        db.Movies.findOne({
-                where: {
-                    id: myId
-                }
-            }).then((resultado) => {
+        db.Movies.findByPk(myId, {
+            include: ["genero"],
+            raw: true,
+            nest: true
+        })
+        .then((resultado) => {
                 let myMovie = resultado
                 return res.render('detail', {
                     myMovie,
@@ -120,7 +121,7 @@ const moviesController = {
             }).then((resultado) => {
                 let myMovie = resultado
                 //ENviar datos de myMovie en los campos del Form (para ser editados)
-                return res.render('edit' , {myUrl});
+                return res.render('edit' , {myMovie, myUrl});
             })
             .catch(error => console.log(error))
 
@@ -134,18 +135,66 @@ const moviesController = {
                 where: {
                     id: myId
                 }
-            });
-        return res.redirect('/movies')
+            })
+        .then(() => {
+                return res.redirect('/movies')
+            })
+        .catch(error => console.log(error))
 
     },
 
     save: function (req, res, next) {
 
         let myId = req.params.id;
-        //ALERT reconfirmar accion
-        //GUARDAR CAMBIOS DEL FORM
-        //VOLVER A LA HOMEPAGE
-       res.redirect('/movies');
+        let actualUrl = url.parse(req.url, true);
+        let myUrl = actualUrl.pathname;
+
+        db.Movies.update({
+
+            title: req.body.title,
+            rating: req.body.rating,
+            awards: req.body.awards,
+            release_date: req.body.release_date,
+            length: req.body.length
+
+        },{
+            where: {
+                id: myId
+            }
+        })
+        .then(() => {
+        return res.redirect('/movies');
+            })
+        .catch(error => console.log(error))
+
+    },
+
+    create: function (req, res, next) {
+
+            var actualUrl = url.parse(req.url, true);
+            let myUrl = actualUrl.pathname;
+
+            res.render('create' , { myUrl })
+    },
+
+    submit: function (req, res, next) {
+
+        let myId = req.params.id;
+        let actualUrl = url.parse(req.url, true);
+        let myUrl = actualUrl.pathname;
+
+        db.Movies.create({
+
+                title: req.body.title,
+                rating: req.body.rating,
+                awards: req.body.awards,
+                release_date: req.body.release_date,
+                length: req.body.length
+
+            })
+            .then(() => {
+                return res.redirect('/movies')})
+            .catch(error => console.log(error))
 
     },
 }

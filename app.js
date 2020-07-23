@@ -5,7 +5,10 @@ const moviesRouter = require('./routes/movies')
 //Template engine EJS
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
-
+app.use(express.urlencoded({
+    extended: false
+}));
+app.use(express.json());
 
 app.listen(3000, function(){
     console.log('Running on 3000');

@@ -28,7 +28,10 @@ router.get('/search', moviesController.search);
 router.get('/detail/:id', moviesController.detail);
 router.post('/detail/:id', moviesController.delete);
 router.get('/detail/:id/edit', moviesController.edit);
-router.post('/detail/:id/edit', upload.any(), moviesController.save);
+router.post('/detail/:id/edit', moviesController.save);
+
+router.get('/create', moviesController.create);
+router.post('/create', upload.any(), moviesController.submit);
 
 
 

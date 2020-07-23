@@ -18,15 +18,23 @@ module.exports = (sequelize, dataTypes) => {
         },       
 
     }
-    const config = {
-        // tableName = 'movies'
-        timestamps : true,
+    let config = {
+        //tableName = 'movies',
+        timestamps : false,
     }
 
-    const Movie = sequelize.define(alias, cols, config);
+    const Movies = sequelize.define(alias, cols, config);
+
+    Movies.associate = (function(models){
+        Movies.belongsTo(models.Generos, {
+            as: "genero",
+            foreignKey:"genre_id"
+        })
+    })
+    
 
 
-    return Movie;
+    return Movies;
 }
 
 
